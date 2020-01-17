@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'jrn'
+
+day = Jrn::Day.new(Date.today)
+

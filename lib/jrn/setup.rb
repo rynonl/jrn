@@ -1,16 +1,18 @@
 require 'etc'
-require 'file'
 
-Jrn::Setup = Struct.new do
-  def start
-    user_dir = Etc.getpwuid.dir
-    puts user_dir
+module Jrn
+  Setup = Struct.new(:_) do
+    def start
+      user_dir = Etc.getpwuid.dir
+      jrn_dir = "#{user_dir}/.jrn/"
+      config_file = "#{jrn_dir}/.config"
 
-    config_path = "#{user_dir}/.jrn"
+      unless File.directory?(jrn_dir)
+        puts "Jrn is running for the first time"
 
-    unless File.file?(config_path)
-      puts "Jrn is running for the first time"
-      File.open(config_path, 'w') { |f| f.write('# jrn') }
+        Dir.mkdir(jrn_dir)
+        File.open(config_file, 'w') { |f| f.write('# jrn') }
+      end
     end
   end
 end

@@ -1,5 +1,6 @@
-require "jrn/version"
-require "jrn/day"
+require 'jrn/day'
+require 'jrn/setup'
+require 'jrn/version'
 
 require 'date'
 

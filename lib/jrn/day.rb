@@ -1,4 +1,4 @@
-Day = Struct.new(:date) do
+Jrn::Day = Struct.new(:date) do
   def start
     puts date
   end

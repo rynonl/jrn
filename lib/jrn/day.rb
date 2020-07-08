@@ -15,8 +15,8 @@ module Jrn
         File.open(day_file, 'w') do |file|
           file << "####{date}###\n"
           file << "\n"
-          file << "#{Time.now.strftime("%I:%M%p")}\n"
-          file << "*\s\s"
+          file << "* #{Time.now.strftime("%I:%M%p")}\n"
+          file << ""
         end
       else
         # Start new line prompt if needed
@@ -25,8 +25,8 @@ module Jrn
         if lines.last != "*\s\s"
           File.open(day_file, 'a') do |file|
             file << "\n"
-            file << "#{Time.now.strftime("%I:%M%p")}\n"
-            file << "*\s\s"
+            file << "* #{Time.now.strftime("%I:%M%p")}\n"
+            file << ""
           end
         end
       end
